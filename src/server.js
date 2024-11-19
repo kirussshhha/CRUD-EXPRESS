@@ -9,6 +9,8 @@ const app = express();
 app.use(express.json());
 const port = process.env.PORT || 4000;
 
+//добавить usecase фильтр на отображение только статуса по id
+
 app.use("/cars", carBrandRoutes);
 app.use("/orders", orderRoutes);
 
