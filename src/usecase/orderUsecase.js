@@ -14,6 +14,13 @@ const orderUsecase = {
     }
     return order;
   },
+  updateOrder: async (id, status) => {
+    const updatedOrder = await orderRepository.updateStatusById(id, status);
+    if (!updatedOrder) {
+      throw new Error("Заказ не найден");
+    }
+    return updatedOrder;
+  },
 };
 
 export default orderUsecase;

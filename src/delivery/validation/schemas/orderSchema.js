@@ -1,11 +1,11 @@
 import Joi from "joi";
 
 const orderSchema = Joi.object({
-  items: Joi.array().min(1).required().messages({
+  items: Joi.array().min(1).messages({
     "array.base": "Товары должны быть массивом",
     "array.min": "В заказе должен быть как минимум один товар",
   }),
-  customerName: Joi.string().min(3).max(30).required().messages({
+  customerName: Joi.string().min(3).max(30).messages({
     "string.base": `"customerName" должно быть строкой`,
     "string.empty": `"customerName" не может быть пустым`,
     "string.min": `"customerName" должно содержать минимум 3 символа`,

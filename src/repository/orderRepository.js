@@ -9,7 +9,10 @@ const orderRepository = {
   },
   getById: async (id) => {
     return await OrderModel.findById(id);
-  }
+  },
+  updateStatusById: async (id, status) => {
+    return await OrderModel.findByIdAndUpdate(id, { status }, { new: true });
+  },
 };
 
 export default orderRepository;

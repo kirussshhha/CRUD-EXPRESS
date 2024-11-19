@@ -22,13 +22,27 @@ const getStatus = async (req, res) => {
   try {
     const { id } = req.params;
     const order = await orderUsecase.checkStatus(id);
-    if (!order) {
-      return res.status(404).json({ error: "Заказ не найден" });
-    }
     res.status(200).json({ status: order.status });
   } catch (err) {
+    if (err.message === "Заказ не найден") {
+      return res.status(404).json({ error: err.message });
+    }
     res.status(500).json({ message: err.message });
   }
 };
 
-export { getOrders, createOrder, getStatus };
+const updateStatus = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+    const updatedOrder = await orderUsecase.updateOrder(id, status);
+    res.status(200).json(updatedOrder);
+  } catch (err) {
+    if (err.message === "Заказ не найден") {
+      return res.status(404).json({ error: err.message });
+    }
+    res.status(500).json({ message: err.message });
+  }
+};
+
+export { getOrders, createOrder, getStatus, updateStatus };
