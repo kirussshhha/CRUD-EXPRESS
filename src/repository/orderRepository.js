@@ -13,6 +13,9 @@ const orderRepository = {
   updateStatusById: async (id, status) => {
     return await OrderModel.findByIdAndUpdate(id, { status }, { new: true });
   },
+  deleteById: async (id) => {
+    return await OrderModel.findByIdAndDelete(id);
+  },
 };
 
 export default orderRepository;

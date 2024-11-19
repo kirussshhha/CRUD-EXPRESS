@@ -14,7 +14,7 @@ const orderSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["создан", "в пути", "доставлено", "отменен"],
+      enum: ["создан", "в пути", "доставлено"],
       default: "создан",
     },
   },

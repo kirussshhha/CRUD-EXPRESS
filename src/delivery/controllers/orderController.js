@@ -45,4 +45,17 @@ const updateStatus = async (req, res) => {
   }
 };
 
-export { getOrders, createOrder, getStatus, updateStatus };
+const deleteOrder = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteOrder = await orderUsecase.deleteOrder(id);
+    res.status(200).json({ message: "Заказ успешно удален", deleteOrder });
+  } catch (err) {
+    if (err.message === "Заказ не найден") {
+      return res.status(404).json({ error: err.message });
+    }
+    res.status(500).json({ message: err.message });
+  }
+};
+
+export { getOrders, createOrder, getStatus, updateStatus, deleteOrder };

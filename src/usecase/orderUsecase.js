@@ -21,6 +21,13 @@ const orderUsecase = {
     }
     return updatedOrder;
   },
+  deleteOrder: async (id) => {
+    const deleteOrder = await orderRepository.deleteById(id);
+    if (!deleteOrder) {
+      throw new Error("Заказ не найден");
+    }
+    return deleteOrder;
+  },
 };
 
 export default orderUsecase;
