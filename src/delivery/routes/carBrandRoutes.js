@@ -1,24 +1,13 @@
 import express from "express";
-import carBrandUsecase from "../../usecase/carBrandUsecase.js";
+import {
+  getCarBrands,
+  createCarBrand,
+} from "../controllers/carBrandController.js";
 
 const router = express.Router();
 
-router.get("/list", async (req, res) => {
-  try {
-    const carBrands = await carBrandUsecase.listAllCarBrands();
-    res.status(200).json(carBrands);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+router.get("/list", getCarBrands);
 
-router.post("/create", async (req, res) => {
-  try {
-    const newCarBrand = await carBrandUsecase.createCarBrand(req.body);
-    res.status(201).json(newCarBrand);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
+router.post("/create", createCarBrand);
 
 export default router;
