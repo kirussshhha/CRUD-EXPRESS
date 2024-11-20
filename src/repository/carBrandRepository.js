@@ -7,6 +7,9 @@ const carBrandRepository = {
   create: async (data) => {
     return await CarBrandModel.create(data);
   },
+  getById: async (id) => {
+    return await CarBrandModel.findById(id);
+  },
 };
 
 export default carBrandRepository;
