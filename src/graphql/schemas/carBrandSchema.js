@@ -10,6 +10,6 @@ export const typeDefs = gql`
     purchases: Int
   }
   type Query {
-    carBrands: [CarBrand]
+    carBrands(filterName: String, sortByName: String): [CarBrand]
   }
 `;
