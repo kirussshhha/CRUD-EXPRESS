@@ -36,5 +36,8 @@ export const resolvers = {
       const { id, ...otherData } = data;
       return await carBrandUsecase.updateCarBrand(id, otherData);
     },
+    deleteCarBrand: async (_, { id }) => {
+      return await carBrandUsecase.deleteCarBrand(id);
+    },
   },
 };

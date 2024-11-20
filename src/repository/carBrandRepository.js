@@ -13,6 +13,9 @@ const carBrandRepository = {
   updateById: async (id, data) => {
     return await CarBrandModel.findByIdAndUpdate(id, data, { new: true });
   },
+  deleteById: async (id) => {
+    return await CarBrandModel.findByIdAndDelete(id);
+  },
 };
 
 export default carBrandRepository;

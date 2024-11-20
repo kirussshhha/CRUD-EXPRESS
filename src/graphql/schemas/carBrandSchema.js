@@ -32,5 +32,7 @@ export const typeDefs = gql`
       bodyType: String!
       purchases: Int
     ): CarBrand
+
+    deleteCarBrand(id: ID!): CarBrand
   }
 `;

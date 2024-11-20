@@ -13,6 +13,9 @@ const carBrandUsecase = {
   updateCarBrand: async (id, data) => {
     return await carBrandRepository.updateById(id, data);
   },
+  deleteCarBrand: async (id) => {
+    return await carBrandRepository.deleteById(id);
+  },
 };
 
 export default carBrandUsecase;
