@@ -10,6 +10,9 @@ const carBrandRepository = {
   getById: async (id) => {
     return await CarBrandModel.findById(id);
   },
+  updateById: async (id, data) => {
+    return await CarBrandModel.findByIdAndUpdate(id, data, { new: true });
+  },
 };
 
 export default carBrandRepository;

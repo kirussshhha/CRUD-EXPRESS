@@ -10,6 +10,9 @@ const carBrandUsecase = {
   getCarBrand: async (id) => {
     return await carBrandRepository.getById(id);
   },
+  updateCarBrand: async (id, data) => {
+    return await carBrandRepository.updateById(id, data);
+  },
 };
 
 export default carBrandUsecase;

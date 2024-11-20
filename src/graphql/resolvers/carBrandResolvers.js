@@ -18,7 +18,7 @@ export const resolvers = {
           } else if (sortByName === "desc") {
             return b.brandName.localeCompare(a.brandName);
           }
-          return 0; 
+          return 0;
         });
       }
 
@@ -31,6 +31,10 @@ export const resolvers = {
   Mutation: {
     createCarBrand: async (_, data) => {
       return await carBrandUsecase.createCarBrand(data);
+    },
+    updateCarBrand: async (_, data) => {
+      const { id, ...otherData } = data;
+      return await carBrandUsecase.updateCarBrand(id, otherData);
     },
   },
 };

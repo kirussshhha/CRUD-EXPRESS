@@ -23,5 +23,14 @@ export const typeDefs = gql`
       bodyType: String!
       purchases: Int
     ): CarBrand
+
+    updateCarBrand(
+      id: ID!
+      brandName: String!
+      model: String!
+      fuelType: String!
+      bodyType: String!
+      purchases: Int
+    ): CarBrand
   }
 `;
