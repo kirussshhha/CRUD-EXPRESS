@@ -13,6 +13,7 @@ export const typeDefs = gql`
   type Query {
     carBrands(filterName: String, sortByName: String): [CarBrand]
     carBrand(id: ID!): CarBrand
+    soldCars(model: String!): Int
   }
 
   type Mutation {

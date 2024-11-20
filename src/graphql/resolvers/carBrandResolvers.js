@@ -27,6 +27,17 @@ export const resolvers = {
     carBrand: async (_, { id }) => {
       return await carBrandUsecase.getCarBrand(id);
     },
+    soldCars: async (_, { model }) => {
+      const query = { model };
+
+      const results = await carBrandUsecase.listAllCarBrands(query);
+
+      if (results.length > 0) {
+        return results.reduce((total, car) => total + (car.purchases || 0), 0);
+      }
+
+      return 0;
+    },
   },
   Mutation: {
     createCarBrand: async (_, data) => {
